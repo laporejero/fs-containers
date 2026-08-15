@@ -53,3 +53,5 @@ update-alternatives: warning: skip creation of /usr/share/man/man1/pico.1.gz bec
 root@6d483ef35c8a:/# nano /usr/src/app/index.js
 root@6d483ef35c8a:/# cat /usr/src/app/index.js
 console.log('Hello World')
+root@6d483ef35c8a:/# exit
+exit
