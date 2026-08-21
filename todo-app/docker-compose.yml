@@ -1,6 +1,6 @@
 services:
   app:
-    image: todo-frontend
+    image: todo-front
     depends_on:
       - backend
   
