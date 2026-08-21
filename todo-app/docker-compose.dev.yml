@@ -5,7 +5,7 @@ services:
       - ./todo-frontend:/usr/src/app
       - /usr/src/app/node_modules
     
-  server:
+  backend:
     image: todo-backend-dev
     volumes:
       - ./todo-backend:/usr/src/app
@@ -42,7 +42,7 @@ services:
     container_name: reverse-proxy
     depends_on:
       - app
-      - server
+      - backend
 
 volumes:
   mongo_data:
