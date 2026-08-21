@@ -1,16 +1,15 @@
 services:
   app:
-    image: todo-frontend
-    ports:
-      - 5173:5173
+    image: todo-frontend-dev
+    volumes:
+      - ./todo-frontend:/usr/src/app
+      - /usr/src/app/node_modules
     
   server:
-    image: todo-backend
+    image: todo-backend-dev
     volumes:
       - ./todo-backend:/usr/src/app
       - /usr/src/app/node_modules
-    ports:
-      - 3000:3000
     environment:
       - REDIS_URL=redis://redis:6379
       - MONGO_URL=mongodb://root:example@mongo:27017/the_database?authSource=admin
@@ -20,8 +19,6 @@ services:
 
   mongo:
     image: mongo
-    ports:
-     - 3456:27017
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
@@ -32,8 +29,6 @@ services:
 
   redis:
     image: redis
-    ports:
-      - 6379:6379
     command: ['redis-server', '--appendonly', 'yes']
     volumes:
       - ./redis_data:/data
